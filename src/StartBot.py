@@ -12,7 +12,7 @@ from resumo_manager import ResumoManager
 import telegram
 import time
 
-# Configurar logging
+# Configurar logging Bot do Breno grey
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
