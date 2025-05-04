@@ -1018,7 +1018,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• Suporte prioritário\n"
             "• Recursos exclusivos\n\n"
             "🔑 *Chave PIX:*\n"
-            "`123.456.789-00`\n\n"
+            "`422b423d-a677-4a34-8cec-aa387fd25003`\n\n"
             "📝 *Após o pagamento:*\n"
             "1. Clique em 'Enviar Comprovante'\n"
             "2. Envie o comprovante de pagamento\n"
