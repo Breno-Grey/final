@@ -1020,17 +1020,32 @@ class GastosManager:
         try:
             # Padrões para identificar contribuições para metas
             padroes = [
-                r'(?:juntei|adicionei|contribuí|coloquei|depositei|reservei|guardei|economizei|poupei|salvei)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?(?:\s+para\s+a\s+meta\s+|\s+na\s+meta\s+|\s+para\s+)(.+)',
-                r'(?:adicionei|coloquei|depositei|reservei|guardei|economizei|poupei|salvei)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?\s+(?:para|na)\s+(?:minha\s+)?meta\s+(?:de\s+)?(.+)',
-                r'(?:meta|objetivo)\s+(.+)\s+(?:recebeu|ganhou|teve|obteve)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?',
-                r'atualizei\s+(?:a\s+)?meta\s+(.+)\s+(?:para|com)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?',
-                r'progresso\s+(?:da\s+)?meta\s+(.+)\s+(?:agora\s+é|está\s+em)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?',
-                r'juntei\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?\s+para\s+a\s+meta\s+(.+)',
-                r'adicionei\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?\s+na\s+meta\s+(.+)',
-                r'contribuí\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?\s+para\s+a\s+meta\s+(.+)',
-                r'meta\s+(.+)\s+recebeu\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?',
-                r'atualizei\s+a\s+meta\s+(.+)\s+para\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?',
-                r'progresso\s+da\s+meta\s+(.+)\s+agora\s+é\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*)?'
+                # Padrões com verbo + valor + para meta
+                r'(?:juntei|adicionei|contribuí|coloquei|depositei|reservei|guardei|economizei|poupei|salvei|botei|colocou|colocou|deixei|deixou|meti|meteu|pus|pôs|dei|deu|entreguei|entregou|transferi|transferiu|mandei|mandou|enviei|enviou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?(?:\s+para\s+a\s+meta\s+|\s+na\s+meta\s+|\s+para\s+|\s+pro\s+|\s+pra\s+|\s+no\s+|\s+na\s+|\s+em\s+)(.+)',
+                
+                # Padrões com valor + verbo + meta
+                r'([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?\s+(?:juntei|adicionei|contribuí|coloquei|depositei|reservei|guardei|economizei|poupei|salvei|botei|colocou|deixei|deixou|meti|meteu|pus|pôs|dei|deu|entreguei|entregou|transferi|transferiu|mandei|mandou|enviei|enviou)\s+(?:para\s+a\s+meta\s+|\s+na\s+meta\s+|\s+para\s+|\s+pro\s+|\s+pra\s+|\s+no\s+|\s+na\s+|\s+em\s+)(.+)',
+                
+                # Padrões com meta + verbo + valor
+                r'(?:meta|objetivo)\s+(.+)\s+(?:recebeu|ganhou|teve|obteve|pegou|conseguiu|acumulou|juntou|adicionou|colocou|botei|meteu|pôs|deu|entregou|transferiu|mandou|enviou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?',
+                
+                # Padrões com atualização de meta
+                r'(?:atualizei|atualizou|mudei|mudou|alterei|alterou|modifiquei|modificou)\s+(?:a\s+)?(?:meta|objetivo)\s+(.+)\s+(?:para|com|em|no\s+valor\s+de)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?',
+                
+                # Padrões com progresso de meta
+                r'(?:progresso|avanço|evolução|andamento)\s+(?:da\s+)?(?:meta|objetivo)\s+(.+)\s+(?:agora\s+é|está\s+em|chegou\s+a|atingiu|alcançou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?',
+                
+                # Padrões com contribuição direta
+                r'(?:juntei|adicionei|contribuí|coloquei|depositei|reservei|guardei|economizei|poupei|salvei|botei|colocou|deixei|deixou|meti|meteu|pus|pôs|dei|deu|entreguei|entregou|transferi|transferiu|mandei|mandou|enviei|enviou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?\s+(?:para\s+a\s+meta\s+|\s+na\s+meta\s+|\s+para\s+|\s+pro\s+|\s+pra\s+|\s+no\s+|\s+na\s+|\s+em\s+)(.+)',
+                
+                # Padrões com meta + valor
+                r'(?:meta|objetivo)\s+(.+)\s+(?:recebeu|ganhou|teve|obteve|pegou|conseguiu|acumulou|juntou|adicionou|colocou|botei|meteu|pôs|deu|entregou|transferiu|mandou|enviou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?',
+                
+                # Padrões com atualização direta
+                r'(?:atualizei|atualizou|mudei|mudou|alterei|alterou|modifiquei|modificou)\s+(?:a\s+)?(?:meta|objetivo)\s+(.+)\s+(?:para|com|em|no\s+valor\s+de)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?',
+                
+                # Padrões com progresso direto
+                r'(?:progresso|avanço|evolução|andamento)\s+(?:da\s+)?(?:meta|objetivo)\s+(.+)\s+(?:agora\s+é|está\s+em|chegou\s+a|atingiu|alcançou)\s+([\d,.]+)\s+(?:reais|r\$|r\$\s*|dinheiro|grana|pila|pila\s*)?'
             ]
             
             for padrao in padroes:
