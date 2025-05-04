@@ -747,6 +747,16 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     
+    if query.data == "limpar_sim":
+        gm = get_gastos_manager(update.effective_user.id)
+        if gm.limpar_historico():
+            await query.edit_message_text("✅ Histórico de gastos limpo com sucesso!")
+        else:
+            await query.edit_message_text("❌ Erro ao limpar histórico de gastos.")
+            
+    elif query.data == "limpar_nao":
+        await query.edit_message_text("Operação cancelada.")
+        
     user_id = query.from_user.id
     gm = get_gastos_manager(user_id)
     
