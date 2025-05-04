@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 if not os.path.exists('data'):
     os.makedirs('data')
 
-# Configurar a API do Gemini
+# Configurar a API do Gemini e do Telegram
 GOOGLE_API_KEY = "AIzaSyAyQyCQPAkR5yjGkLgz-hOWqzpH-WALRVY"
 TELEGRAM_TOKEN = "7806097135:AAFb40DQgSGiu7uIk6trkdFWISW-j37Keyg"
 genai.configure(api_key=GOOGLE_API_KEY)
