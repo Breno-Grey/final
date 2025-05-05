@@ -307,7 +307,7 @@ async def ajuda(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ],
         [
             InlineKeyboardButton("⚙️ Configurações", callback_data="ajuda_config"),
-            InlineKeyboardButton("❓ Outros", callback_data="ajuda_outros")
+            InlineKeyboardButton("📚 Guia Completo", callback_data="ajuda_outros")
         ],
         [
             InlineKeyboardButton("🎉 Acesso Ilimitado", callback_data="acesso_ilimitado")
@@ -839,7 +839,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             ],
             [
                 InlineKeyboardButton("⚙️ Configurações", callback_data="ajuda_config"),
-                InlineKeyboardButton("❓ Outros", callback_data="ajuda_outros")
+                InlineKeyboardButton("📚 Guia Completo", callback_data="ajuda_outros")
             ],
             [
                 InlineKeyboardButton("🎉 Acesso Ilimitado", callback_data="acesso_ilimitado")
@@ -996,7 +996,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
     elif query.data == "ajuda_outros":
         await query.edit_message_text(
-            "*❓ Ajuda: Guia Completo do FinBot*\n\n"
+            "*📚 Guia Completo*\n\n"
             "🤖 *Funcionalidades Principais:*\n\n"
             "1. *💰 Registro de Gastos*\n"
             "• Digite naturalmente: \"gastei 50 com almoço\"\n"
