@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 if not os.path.exists('data'):
     os.makedirs('data')
 
-# Configurar a API do Gemini e do Telegram
+# Configurar a API do Gemini e do Telegram Não comitar as variáveis de ambiente
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
