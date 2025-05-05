@@ -24,8 +24,12 @@ if not os.path.exists('data'):
     os.makedirs('data')
 
 # Configurar a API do Gemini e do Telegram
-GOOGLE_API_KEY = "AIzaSyAyQyCQPAkR5yjGkLgz-hOWqzpH-WALRVY"
-TELEGRAM_TOKEN = "7806097135:AAFb40DQgSGiu7uIk6trkdFWISW-j37Keyg"
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+
+if not GOOGLE_API_KEY or not TELEGRAM_TOKEN:
+    raise ValueError("As variáveis de ambiente GOOGLE_API_KEY e TELEGRAM_TOKEN são obrigatórias!")
+
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Configurar o modelo
