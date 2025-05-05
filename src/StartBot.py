@@ -227,9 +227,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         aguardando_nome.add(user_id)
         
         welcome_message = """
-        🎉 Bem-vindo ao FinBot! 🤖
+        Olá! Eu sou o FinBot, seu assistente financeiro.
+        Ajudo você a registrar gastos, organizar por categorias, visualizar resumos e responder dúvidas com inteligência artificial.
+        Basta me informar seus gastos ou usar os comandos disponíveis para começar.
 
-        Qual é o seu nome?
+        🎉 Para começar, qual é o seu nome?
         """
         await update.message.reply_text(welcome_message)
     else:
