@@ -996,19 +996,61 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
     elif query.data == "ajuda_outros":
         await query.edit_message_text(
-            "*❓ Ajuda: Outros Tópicos*\n\n"
-            "🤖 *IA Financeira:*\n"
-            "• Pergunte sobre investimentos\n"
-            "• Peça dicas de economia\n"
-            "• Consulte sobre orçamento\n"
-            "• Tire dúvidas financeiras\n\n"
-            "💡 *Dicas Gerais:*\n"
-            "• Use emojis para facilitar a leitura\n"
-            "• Mantenha suas descrições claras\n"
-            "• Revise seus dados regularmente\n"
+            "*❓ Ajuda: Guia Completo do FinBot*\n\n"
+            "🤖 *Funcionalidades Principais:*\n\n"
+            "1. *💰 Registro de Gastos*\n"
+            "• Digite naturalmente: \"gastei 50 com almoço\"\n"
+            "• Especifique data: \"paguei 100 no mercado ontem\"\n"
+            "• Categorização automática\n\n"
+            
+            "2. *💵 Registro de Receitas*\n"
+            "• Digite: \"ganhei 100 com freela\"\n"
+            "• Registre extras: \"recebi 50 de presente\"\n"
+            "• Organização por tipo\n\n"
+            
+            "3. *📊 Resumos Financeiros*\n"
+            "• /resumo - Visão geral\n"
+            "• /resumodetalhado - Análise completa\n"
+            "• Gráficos e percentuais\n\n"
+            
+            "4. *🎯 Metas Financeiras*\n"
+            "• Crie metas com nome e valor\n"
+            "• Defina data limite\n"
+            "• Acompanhe progresso\n"
+            "• Adicione valores: \"juntei 100 para a meta Viagem\"\n\n"
+            
+            "5. *🤖 IA Financeira*\n"
+            "• Dicas personalizadas\n"
+            "• Análise de gastos\n"
+            "• Sugestões de economia\n"
+            "• Respostas a dúvidas\n\n"
+            
+            "📝 *Comandos Disponíveis:*\n"
+            "/start - Iniciar bot\n"
+            "/ajuda - Ver este menu\n"
+            "/salario - Configurar salário\n"
+            "/resumo - Ver resumo básico\n"
+            "/resumodetalhado - Análise completa\n"
+            "/categorias - Listar categorias\n"
+            "/metas - Gerenciar metas\n"
+            "/meta - Adicionar valor a meta\n"
+            "/limpar - Limpar histórico\n\n"
+            
+            "💡 *Dicas de Uso:*\n"
+            "• Use linguagem natural\n"
+            "• Mantenha descrições claras\n"
+            "• Revise resumos regularmente\n"
             "• Defina metas realistas\n\n"
-            "📱 *Suporte:*\n"
-            "Use /ajuda para ver esta mensagem novamente",
+            
+            "🔔 *Lembretes:*\n"
+            "• Registre todos os gastos\n"
+            "• Inclua receitas extras\n"
+            "• Acompanhe suas metas\n"
+            "• Use a IA para dicas\n\n"
+            
+            "❓ *Precisa de mais ajuda?*\n"
+            "Use /ajuda para voltar ao menu principal\n"
+            "ou clique nos botões específicos para mais detalhes.",
             parse_mode='Markdown'
         )
         
